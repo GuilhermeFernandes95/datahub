@@ -24,5 +24,4 @@ class Input:
 
     @staticmethod
     def get_input_entries(inputs: list) -> str:
-        entries = ',\n'.join(list(map(lambda x: x._get_input_entry(), inputs)))
-        return '\n'.join(('[', entries, ']'))  # entries with list formatting
+        return ',\n'.join(list(map(lambda x: x._get_input_entry(), inputs)))

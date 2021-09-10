@@ -1,7 +1,7 @@
 {
     "auditHeader": null,
     "proposedSnapshot": {
-        "com.linkedin.pegasus2avro.metadata.snapshot.upper_snapshotSnapshot": {
+        "com.linkedin.pegasus2avro.metadata.snapshot.$upper_snapshot$Snapshot": {
             "urn": "urn:li:$lower_snapshot$:(metabase,InfoSec)",
             "aspects": [
                 {
