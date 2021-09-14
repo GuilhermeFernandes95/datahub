@@ -1,4 +1,4 @@
 department,resource_type,resource_number,resource_title,resource_description,resource_link,resource_owner,tables,database,schema
-1,Dashboard,1,title1,1,1,jdoe,"transactions, users",analytics,public
-InfoSec,Question,660,Bank Account Number,Stats on bank account numbers,https://metabase.uphold.net/question/660-bank-account-number,jdoe,users,analytics,public
+1,Question,1,title1,1,1,jdoe,,analytics,public
+InfoSec,Question,660,Bank Account Number,Stats on bank account numbers,https://metabase.uphold.net/question/660-bank-account-number,jdoe,,analytics,public
 BizDev,Question,3018,Restricted User with w/ Locked Funds Details,Restricted Locked Funds,https://metabase.uphold.net/question/3018,jdoe,,support,public

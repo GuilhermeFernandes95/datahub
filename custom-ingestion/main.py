@@ -1,7 +1,9 @@
 import pandas as pd
+import os
 from Chart import Chart
 from Dashboard import Dashboard
 from Input import Input
+from pathlib import Path
 
 
 # MCE is a Metadata Change Event JSON with specific structure to feed DataHub with legacy (or custom) data
@@ -29,6 +31,7 @@ def generate_mce(json_template: dict,
 
 
 if __name__ == '__main__':
+    os.chdir(Path(__file__).resolve().parents[0])  # change working directory
     df = pd.read_csv('resources.csv', sep=',')  # ideally would read from google sheet
     snapshots = []
 
@@ -69,3 +72,4 @@ if __name__ == '__main__':
 
     with open("output_test.json", "w") as text_file:
         text_file.write(output)
+   
