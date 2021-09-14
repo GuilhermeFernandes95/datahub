@@ -3,7 +3,8 @@ import os
 from Chart import Chart
 from Dashboard import Dashboard
 from Input import Input
-from pathlib import Path
+from Path import Path
+from pathlib import Path as wd
 
 
 # MCE is a Metadata Change Event JSON with specific structure to feed DataHub with legacy (or custom) data
@@ -31,7 +32,7 @@ def generate_mce(json_template: dict,
 
 
 if __name__ == '__main__':
-    os.chdir(Path(__file__).resolve().parents[0])  # change working directory
+    os.chdir(wd(__file__).resolve().parents[0])  # change working directory
     df = pd.read_csv('resources.csv', sep=',')  # ideally would read from google sheet
     snapshots = []
 
@@ -70,6 +71,19 @@ if __name__ == '__main__':
     output = '\n'.join(('[', output, ']'))
     output = "".join(output.split())
 
-    with open("output_test.json", "w") as text_file:
-        text_file.write(output)
-   
+    # with open("output.json", "w") as text_file:
+    #    text_file.write(output)
+
+    paths = []
+    for index, row in df.iterrows():
+        #paths.append(Path(department=row['department'],
+        #                  sub_folders=row['sub_folders'],
+        #                  title=row['resource_title'])
+        #             )
+        paths.append([Path(department=x,
+                       sub_folders=row['sub_folders'],
+                       title=row['resource_title']) for x in row['department'].split(';')])
+
+
+    for path in paths:
+        print(Path.get_path_entries(path))
