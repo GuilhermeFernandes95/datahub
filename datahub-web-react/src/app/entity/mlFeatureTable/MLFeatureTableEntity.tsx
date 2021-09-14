@@ -32,7 +32,7 @@ export class MLFeatureTableEntity implements Entity<MlFeatureTable> {
 
     isSearchEnabled = () => true;
 
-    isBrowseEnabled = () => true;
+    isBrowseEnabled = () => false;
 
     isLineageEnabled = () => true;
 

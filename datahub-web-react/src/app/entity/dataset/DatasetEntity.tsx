@@ -62,7 +62,7 @@ export class DatasetEntity implements Entity<Dataset> {
 
     isSearchEnabled = () => true;
 
-    isBrowseEnabled = () => true;
+    isBrowseEnabled = () => false;
 
     isLineageEnabled = () => true;
 

@@ -34,7 +34,7 @@ export class MLModelGroupEntity implements Entity<MlModelGroup> {
 
     isSearchEnabled = () => true;
 
-    isBrowseEnabled = () => true;
+    isBrowseEnabled = () => false;
 
     isLineageEnabled = () => true;
 

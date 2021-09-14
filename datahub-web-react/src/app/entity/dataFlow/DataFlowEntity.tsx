@@ -33,7 +33,7 @@ export class DataFlowEntity implements Entity<DataFlow> {
 
     isSearchEnabled = () => true;
 
-    isBrowseEnabled = () => true;
+    isBrowseEnabled = () => false;
 
     isLineageEnabled = () => false;
 
