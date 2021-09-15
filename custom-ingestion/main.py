@@ -4,7 +4,10 @@ from Chart import Chart
 from Dashboard import Dashboard
 from Input import Input
 from Path import Path
+from Owner import Owner
 from pathlib import Path as wd
+
+split_sep = ';'  # Define in a YAML file
 
 
 # MCE is a Metadata Change Event JSON with specific structure to feed DataHub with legacy (or custom) data
@@ -21,11 +24,12 @@ def generate_mce(json_template: dict,
                                       ).replace('$resource_link$', snapshot.link
                                                 ).replace('$resource_title$', snapshot.title
                                                           ).replace('$resource_description$', snapshot.description
-                                                                    ).replace('$owner_name$', snapshot.owner
-                                                                              ).replace('"$inputs$"',
-                                                                                        Input.get_input_entries(
-                                                                                            snapshot.inputs)
-                                                                                        )
+                                                                    ).replace('"$inputs$"',
+                                                                              Input.get_input_entries(
+                                                                                  snapshot.inputs)
+                                                                              )
+            # .replace('$owner_name$', snapshot.owners
+            #         )
         )
 
     return mce
@@ -42,23 +46,33 @@ if __name__ == '__main__':
                                    title=row['resource_title'],
                                    description=row['resource_description'],
                                    link=row['resource_link'],
-                                   owner=row['resource_owner'],
+                                   # owners=row['resource_owners'],
+                                   owners=[Owner(name=x,
+                                                 roles=row['owners_roles']) for x in row['resource_owners'].split(split_sep)
+                                           ] if not isinstance(row['resource_owners'], float) else '',
                                    inputs=[Input(database=row['database'],
                                                  schema=row['schema'],
-                                                 table=x) for x in row['tables'].split(',')
-                                           ] if not isinstance(row['tables'], float) else ''
-                                   )  # arg: inputs can have more than one entry (comma separated)
+                                                 table=x) for x in row['tables'].split(split_sep)
+                                           ] if not isinstance(row['tables'], float) else '',
+                                   paths=[Path(department=x,
+                                               sub_folders=row['sub_folders'],
+                                               title=row['resource_title']) for x in row['department'].split(split_sep)]
+
+                                   )  # arg: inputs and paths can have more than one entry (comma separated)
                              )
         elif row['resource_type'].lower() == 'dashboard':
             snapshots.append(Dashboard(number=row['resource_number'],
                                        title=row['resource_title'],
                                        description=row['resource_description'],
                                        link=row['resource_link'],
-                                       owner=row['resource_owner'],
+                                       owners=row['resource_owners'],
                                        inputs=[Input(database=row['database'],
                                                      schema=row['schema'],
                                                      table=x) for x in row['tables'].split(',')
-                                               ] if not isinstance(row['tables'], float) else ''
+                                               ] if not isinstance(row['tables'], float) else '',
+                                       paths=[Path(department=x,
+                                                   sub_folders=row['sub_folders'],
+                                                   title=row['resource_title']) for x in row['department'].split(';')]
                                        )  # arg: inputs can have more than one entry (comma separated)
                              )
         else:
@@ -71,19 +85,20 @@ if __name__ == '__main__':
     output = '\n'.join(('[', output, ']'))
     output = "".join(output.split())
 
+    for snap in snapshots:
+        print(snap)
     # with open("output.json", "w") as text_file:
     #    text_file.write(output)
 
-    paths = []
-    for index, row in df.iterrows():
-        #paths.append(Path(department=row['department'],
-        #                  sub_folders=row['sub_folders'],
-        #                  title=row['resource_title'])
-        #             )
-        paths.append([Path(department=x,
-                       sub_folders=row['sub_folders'],
-                       title=row['resource_title']) for x in row['department'].split(';')])
-
-
-    for path in paths:
-        print(Path.get_path_entries(path))
+    # paths = []
+    # for index, row in df.iterrows():
+    #    # paths.append(Path(department=row['department'],
+    #    #                  sub_folders=row['sub_folders'],
+    #    #                  title=row['resource_title'])
+    #    #             )
+    #    paths.append([Path(department=x,
+    #                       sub_folders=row['sub_folders'],
+    #                       title=row['resource_title']) for x in row['department'].split(';')])
+#
+# for path in paths:
+#    print(Path.get_path_entries(path))

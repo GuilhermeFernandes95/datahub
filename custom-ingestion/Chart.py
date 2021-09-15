@@ -9,7 +9,8 @@ class Chart(Snapshot):
                  title: str,
                  description: str,
                  link: str,
-                 owner: list, # name of the corpuser (user id name)
-                 inputs: list) -> object:
-        super().__init__(number, title, description, link, owner, inputs)
+                 owners: list,
+                 inputs: list,
+                 paths: list) -> object:
+        super().__init__(number, title, description, link, owners, inputs, paths)
         self.type = self.snapshot_type

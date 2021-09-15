@@ -1,9 +1,54 @@
-[{"auditHeader":null,"proposedSnapshot":{"com.linkedin.pegasus2avro.metadata.snapshot.ChartSnapshot":{"urn":"urn:li:chart:(metabase,InfoSec)","aspects":[{"com.linkedin.pegasus2avro.chart.ChartInfo":{"customProperties":{},"externalUrl":"1","title":"title1","description":"1","lastModified":{"created":{"time":0,"actor":"urn:li:corpuser:jdoe","impersonator":null},"lastModified":{"time":0,"actor":"urn:li:corpuser:jdoe","impersonator":null},"deleted":null},"chartUrl":null,"inputs":[],"type":null,"access":null,"lastRefreshed":null}}]}},"proposedDelta":null},{"auditHeader":null,"proposedSnapshot":{"com.linkedin.pegasus2avro.metadata.snapshot.ChartSnapshot":{"urn":"urn:li:chart:(metabase,InfoSec)","aspects":[{"com.linkedin.pegasus2avro.chart.ChartInfo":{"customProperties":{},"externalUrl":"https://metabase.uphold.net/question/660-bank-account-number","title":"BankAccountNumber","description":"Statsonbankaccountnumbers","lastModified":{"created":{"time":0,"actor":"urn:li:corpuser:jdoe","impersonator":null},"lastModified":{"time":0,"actor":"urn:li:corpuser:jdoe","impersonator":null},"deleted":null},"chartUrl":null,"inputs":[],"type":null,"access":null,"lastRefreshed":null}}]}},"proposedDelta":null},{"auditHeader":null,"proposedSnapshot":{"com.linkedin.pegasus2avro.metadata.snapshot.ChartSnapshot":{"urn":"urn:li:chart:(metabase,InfoSec)","aspects":[{"com.linkedin.pegasus2avro.chart.ChartInfo":{"customProperties":{},"externalUrl":"https://metabase.uphold.net/question/3018","title":"RestrictedUserwithw/LockedFundsDetails","description":"RestrictedLockedFunds","lastModified":{"created":{"time":0,"actor":"urn:li:corpuser:jdoe","impersonator":null},"lastModified":{"time":0,"actor":"urn:li:corpuser:jdoe","impersonator":null},"deleted":null},"chartUrl":null,"inputs":[],"type":null,"access":null,"lastRefreshed":null}},
-               {
-                  "com.linkedin.pegasus2avro.common.BrowsePaths":{
-                     "paths":[
-                        "/Metabase/InfoSec/test1",
-                        "/Metabase/BizDev/Partners/test"
-                     ]
-                  }
-               }]}},"proposedDelta":null}]
+{
+  "auditHeader": null,
+  "proposedSnapshot": {
+    "com.linkedin.pegasus2avro.metadata.snapshot.ChartSnapshot": {
+      "urn": "urn:li:chart:(metabase,Custom Data for testing)",
+      "aspects": [
+        {
+          "com.linkedin.pegasus2avro.chart.ChartInfo": {
+            "customProperties": {},
+            "externalUrl": null,
+            "title": "zxcv",
+            "description": "Custom Data for testing - metabase questions (https://metabase.uphold.net)",
+            "lastModified": {
+              "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:jdoe",
+                "impersonator": null
+              }
+            },
+            "inputs": [
+            ]
+          }
+        },
+        {
+          "com.linkedin.pegasus2avro.common.Ownership": {
+            "owners": [
+              {
+                "owner": "urn:li:corpuser:jdoe",
+                "type": "DATAOWNER"
+              },
+              {
+                "owner": "urn:li:corpuser:datahub",
+                "type": "STAKEHOLDER"
+              }
+            ],
+            "lastModified": {
+              "actor": "urn:li:corpuser:jdoe",
+              "time": 0
+            }
+          }
+        },
+        {
+          "com.linkedin.pegasus2avro.common.BrowsePaths": {
+            "paths": [
+              "/prod/metabase/custom/browse/Custom Data for testing",
+              "/prod/metabase/br/Custom Data for testing"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "proposedDelta": null
+}
