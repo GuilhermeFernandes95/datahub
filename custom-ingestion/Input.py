@@ -23,5 +23,8 @@ class Input:
         return f"{{\"string\": \"urn:li:{self.type}:(urn:li:dataPlatform:prod,{self._get_path()},PROD)\"}}"
 
     @staticmethod
-    def get_input_entries(inputs: list) -> str:
-        return ',\n'.join(list(map(lambda x: x._get_input_entry(), inputs)))
+    def get_input_entries(inputs: list, snapshot_type: str) -> str:
+        if snapshot_type == 'chart':
+            return ',"inputs": [' + ',\n'.join(list(map(lambda x: x._get_input_entry(), inputs))) + ']'
+        else:
+            return ''
