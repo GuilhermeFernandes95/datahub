@@ -1,4 +1,4 @@
-department,resource_type,resource_number,resource_title,resource_description,resource_link,resource_owners,owners_roles,tables,database,schema,sub_folders
-InfoSec,Question,1,title1,1,1,,producer,,analytics,public,Partners
-InfoSec,Question,660,Bank Account Number,Stats on bank account numbers,https://metabase.uphold.net/question/660-bank-account-number,jdoe,dataowner,,analytics,public,Test1
-BizDev;InfoSec,Question,3018,Restricted User with w/ Locked Funds Details,Restricted Locked Funds,https://metabase.uphold.net/question/3018,jdoe;datahub,dataowner,,support,public,Test3
+department,resource_type,resource_number,resource_title,resource_description,resource_link,resource_owners,owners_roles,tables,database,schema,sub_folders,tags
+InfoSec,Question,1,title1,1,1,,producer,,analytics,public,Partners,laaa
+InfoSec,Question,660,Bank Account Number,Stats on bank account numbers,https://metab.up.net/question/660,jdoe,dataowner,,analytics,public,Test1,pii
+BizDev;InfoSec,Dashboard,3018,Restricted User with w/ Locked Funds Details,Restricted Locked Funds,https://metab.up.net/question/3018,jdoe;datahub,dataowner,,support,public,Test3;sub,def;asda
