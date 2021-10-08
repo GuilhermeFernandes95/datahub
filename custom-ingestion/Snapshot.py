@@ -22,9 +22,9 @@ class Snapshot(ABC):
         self.description = description
         self.link = link
         self.owners = owners
-        self.inputs = inputs
         self.tags = tags
         self.paths = paths
+        self.inputs = inputs
 
     def __str__(self):
         return f"{self.type} number {self.number}, with tile '{self.title}', and description '{self.description}' \n" \
@@ -34,3 +34,23 @@ class Snapshot(ABC):
     # Instance methods
     def get_urn_path(self) -> str:
         return ','.join([self.platform, ' '.join([self.platform, self.type, str(self.number)])])
+
+    @staticmethod
+    def get_tag_entries(tags: list) -> str:
+        return ',\n'.join([x._get_tag_entry() for x in tags])
+
+    @staticmethod
+    # Chart and Dashboard urn are defined by <tool>,<id>
+    def get_path_entries(paths: list, urn: str) -> str:
+        return ',\n'.join([f"\"{p._get_path(i=i, id=urn.split(',')[1])}\"" for i, p in enumerate(paths)])
+
+    @staticmethod
+    def get_input_entries(inputs: list, snapshot_type: str) -> str:
+        if snapshot_type == 'chart':
+            return ',"inputs": [' + ',\n'.join(list(map(lambda x: x._get_input_entry(), inputs))) + ']'
+        else:
+            return ''
+
+    @staticmethod
+    def get_owner_entries(owners: list) -> str:
+        return ',\n'.join([f"{p._get_owner_entry(i=i)}" for i, p in enumerate(owners)])

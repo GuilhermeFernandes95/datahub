@@ -18,7 +18,3 @@ class Owner:
             return f"{{\"owner\": \"urn:li:corpuser:{self.name}\", \"type\": \"{self.roles.split(';')[i].upper()}\"}}"
         except Exception as e:
             print(f"{e} ---- Owners and roles given do not match the expected ----")
-
-    @staticmethod
-    def get_owner_entries(owners: list) -> str:
-        return ',\n'.join(list(map(lambda x: x[1]._get_owner_entry(x[0]), enumerate(owners))))

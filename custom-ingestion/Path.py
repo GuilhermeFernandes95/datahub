@@ -29,9 +29,3 @@ class Path:
             )  # empty string given to add a <separator> at the beginning
         except Exception as e:
             print(f"{e} ---- Departments and paths given do not match the expected ----")
-
-    @staticmethod
-    # Chart and Dashboard urn are defined by <tool>,<id>
-    def get_path_entries(paths: list, urn: str) -> str:
-        return ',\n'.join((f'"{w}"' for w in list(
-            map(lambda x: (x[1]._get_path(i=x[0], id=urn.split(',')[1])), enumerate(paths)))))

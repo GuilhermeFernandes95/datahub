@@ -2,7 +2,6 @@ from Snapshot import Snapshot
 
 
 class Dashboard(Snapshot):
-    snapshot_type = 'Dashboard'
     platform = 'Metabase'  # 1st version only considers Metabase tools
 
     def __init__(self,
@@ -15,8 +14,8 @@ class Dashboard(Snapshot):
                  paths: list,
                  inputs: list = '') -> object:
         super().__init__(number, title, description, link, owners, inputs, tags, paths)
-        self.type = self.snapshot_type
+        self.type = Dashboard.__name__
 
     # Instance methods
     def get_urn_path(self) -> str:
-        return ','.join([self.platform, ' '.join([self.platform, self.type, str(self.number)])])
+        return ','.join([self.platform, ' '.join([self.platform, Dashboard.__name__, str(self.number)])])
