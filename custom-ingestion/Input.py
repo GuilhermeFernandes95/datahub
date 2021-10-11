@@ -17,7 +17,7 @@ class Input:
 
     # Instance methods
     def _get_path(self) -> str:
-        return '.'.join([self.database, self.schema, self.table])
+        return '.'.join([self.schema, self.database, self.table])
 
     def _get_input_entry(self) -> str:
         return f'{{"string": "urn:li:{self.type}:(urn:li:dataPlatform:prod,{self._get_path()},PROD)"}}'

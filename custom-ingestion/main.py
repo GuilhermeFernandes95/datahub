@@ -13,30 +13,30 @@ split_sep = ';'  # Define in a YAML file
 input_placeholder = ',"$input_placeholder$":'  # Dashboard structure stopped supporting 'input'
 
 
-def build_snapshot(snapshots, snapshot_type):
-    snapshots.append(snapshot_type(number=row['resource_number'],
-                                   title=row['resource_title'],
-                                   description=row['resource_description'],
-                                   link=row['resource_link'],
-                                   owners=[Owner(name=x,
-                                                 roles=row['owners_roles']) for x in
-                                           row['resource_owners'].split(split_sep)
-                                           ] if not isinstance(row['resource_owners'], float) else '',
-                                   tags=[Tag(name=x) for x in row['tags'].split(split_sep)
-                                         ] if not isinstance(row['tags'], float) else '',
-                                   paths=[Path(department=x,
-                                               sub_folders=row['sub_folders'],
-                                               resource_number=row['resource_number'],
-                                               title=row['resource_title']) for x in
-                                          row['department'].split(split_sep)]
+def build_snapshot(instance, snapshot_type):
+    snapshots.append(snapshot_type(number=instance['resource_number'],
+                                   title=instance['resource_title'],
+                                   description=instance['resource_description'],
+                                   link=instance['resource_link'],
+                                   owners=[Owner(name=x.strip(),
+                                                 roles=instance['owners_roles']) for x in
+                                           instance['resource_owners'].split(split_sep)
+                                           ] if not isinstance(instance['resource_owners'], float) else '',
+                                   tags=[Tag(name=x.strip()) for x in instance['tags'].split(split_sep)
+                                         ] if not isinstance(instance['tags'], float) else '',
+                                   paths=[Path(department=x.strip(),
+                                               sub_folders=instance['sub_folders'],
+                                               resource_number=instance['resource_number'],
+                                               title=instance['resource_title']) for x in
+                                          instance['department'].split(split_sep)]
 
                                    )  # arg: inputs and paths can have more than one entry (comma separated)
                      )
 
-    if isinstance(snapshot_type, Chart):
+    if snapshot_type == Chart:
         snapshots[-1].inputs = [Input(database=row['database'],
                                       schema=row['schema'],
-                                      table=x) for x in row['tables'].split(split_sep)
+                                      table=x.strip()) for x in row['tables'].split(split_sep)
                                 ] if not isinstance(row['tables'], float) else ''
 
     return snapshots
@@ -74,9 +74,9 @@ if __name__ == '__main__':
 
     for index, row in df.iterrows():
         if row['resource_type'].lower() == 'question':
-            snapshots = build_snapshot(snapshots, Chart)
+            snapshots = build_snapshot(row, Chart)
         elif row['resource_type'].lower() == 'dashboard':
-            snapshots = build_snapshot(snapshots, Dashboard)
+            snapshots = build_snapshot(row, Dashboard)
         else:
             raise ValueError('---- Resource Type not Recognized. Check the input file ----')
 
