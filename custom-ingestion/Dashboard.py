@@ -8,12 +8,13 @@ class Dashboard(Snapshot):
                  number: int,
                  title: str,
                  description: str,
+                 documentation: object,
                  link: str,
                  owners: list,
                  tags: list,
                  paths: list,
-                 inputs: list = '') -> object:
-        super().__init__(number, title, description, link, owners, inputs, tags, paths)
+                 inputs: list = '') -> str:
+        super().__init__(number, title, description, documentation, link, owners, inputs, tags, paths)
         self.type = Dashboard.__name__
 
     # Instance methods

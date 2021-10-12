@@ -20,6 +20,11 @@
           }
         },
         {
+          "com.linkedin.pegasus2avro.$lower_snapshot$.Editable$upper_snapshot$Properties": {
+            "description": "$documentation$"
+          }
+        },
+        {
           "com.linkedin.pegasus2avro.common.Ownership": {
             "owners": [
               "$owners$"

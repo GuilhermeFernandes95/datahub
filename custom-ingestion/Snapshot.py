@@ -12,6 +12,7 @@ class Snapshot(ABC):
                  number: int,
                  title: str,
                  description: str,
+                 documentation: str,
                  link: str,
                  owners: list,  # name of the corpuser (user id name)
                  inputs: list,
@@ -20,6 +21,7 @@ class Snapshot(ABC):
         self.number = number
         self.title = title
         self.description = description
+        self.documentation = documentation
         self.link = link
         self.owners = owners
         self.tags = tags
@@ -28,8 +30,9 @@ class Snapshot(ABC):
 
     def __str__(self):
         return f"{self.type} number {self.number}, with tile '{self.title}', and description '{self.description}' \n" \
-               f"Inputs: {Input.get_input_entries(self.inputs)} \n Paths: {Path.get_path_entries(self.paths, self.get_urn_path())} " \
-               f"\n Owners: {Owner.get_owner_entries(self.owners)} \n Tags: {Tag.get_tag_entries(self.tags)}"
+               f"Inputs: {Input.get_input_entries(self.inputs)} \n Paths: {Path.get_path_entries(self.paths, self.get_urn_path())} \n" \
+               f"Owners: {Owner.get_owner_entries(self.owners)} \n Tags: {Tag.get_tag_entries(self.tags)} \n" \
+               f"Documentation: {self.documentation}"
 
     # Instance methods
     def get_urn_path(self) -> str:

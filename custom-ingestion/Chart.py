@@ -8,12 +8,13 @@ class Chart(Snapshot):
                  number: int,
                  title: str,
                  description: str,
+                 documentation: str,
                  link: str,
                  owners: list,
                  tags: list,
                  paths: list,
                  inputs: list = '') -> object:
-        super().__init__(number, title, description, link, owners, inputs, tags, paths)
+        super().__init__(number, title, description, documentation, link, owners, inputs, tags, paths)
         self.type = Chart.__name__
 
     # Instance methods
