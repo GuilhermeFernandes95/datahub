@@ -1,0 +1,52 @@
+{
+  "auditHeader": null,
+  "proposedSnapshot": {
+    "com.linkedin.pegasus2avro.metadata.snapshot.$upper_snapshot$Snapshot": {
+      "urn": "urn:li:$lower_snapshot$:($snapshot_id$)",
+      "aspects": [
+        {
+          "com.linkedin.pegasus2avro.$lower_snapshot$.$upper_snapshot$Info": {
+            "customProperties": {},
+            "externalUrl": "$resource_link$",
+            "title": "$resource_title$",
+            "description": "$resource_description$",
+            "lastModified": {
+              "created": {
+                "time": 0,
+                "actor": "urn:li:corpuser:datahub",
+                "impersonator": null
+              }
+            },"$input_placeholder$": "$inputs$"
+          }
+        },
+        {
+          "com.linkedin.pegasus2avro.$lower_snapshot$.Editable$upper_snapshot$Properties": {
+            "description": "$documentation$"
+          }
+        },
+        {
+          "com.linkedin.pegasus2avro.common.Ownership": {
+            "owners": [
+              "$owners$"
+            ]
+          }
+        },
+        {
+          "com.linkedin.pegasus2avro.common.GlobalTags": {
+            "tags": [
+              "$tags$"
+            ]
+          }
+        },
+        {
+          "com.linkedin.pegasus2avro.common.BrowsePaths": {
+            "paths": [
+              "$paths$"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "proposedDelta": null
+}

@@ -1,0 +1,10 @@
+source:
+  type: file
+  config:
+    # Coordinates
+    filename: $DEFINE_PATH/datahub/custom-ingestion/output.json
+
+sink:
+  type: "datahub-rest"
+  config:
+    server: "http://localhost:8080"

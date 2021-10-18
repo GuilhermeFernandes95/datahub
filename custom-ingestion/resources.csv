@@ -1,0 +1,4 @@
+department,resource_type,resource_number,resource_title,resource_description,resource_extended_description,resource_caveats,resource_special_instructions,resource_link,resource_owners,owners_roles,tables,database,schema,sub_folders,tags
+InfoSec,Question,1,Cute description,desc,Extended description,caveat; caveatsds,Inst   1; inst 2; inst4,1,,producer,,analytics,public,Partners,laaa
+InfoSec,Question,660,Bank Account Number,Stats on bank account numbers,Stats on bank account numbers with lala and blah blah,dwdqd,dqwd,https://metab.up.net/question/660,jdoe,dataowner,users; trs,analytics,public,Test1,pii
+BizDev;InfoSec,Dashboard,234,Restricted User with w/ Locked Funds Details,Restricted Locked Funds (tiny description),Restricted Locked Funds with lalala (extended description),Caveat 1; Caveat 2,"First, do X; Then, do Y",https://metab.up.net/question/3018,jdoe;datahub,dataowner,users,support,public,Test3,sub;def;asda

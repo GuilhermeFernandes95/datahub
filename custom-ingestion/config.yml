@@ -1,0 +1,36 @@
+configurations:
+  resource_file: 'resources.csv'
+  split: ';'
+  input_placeholder: ',"$input_placeholder$":'
+  columns:
+    number: resource_number
+    title: resource_title
+    description: resource_description
+    extended_description: resource_extended_description
+    caveats: resource_caveats
+    special_instructions: resource_special_instructions
+    link: resource_link
+    owners: resource_owners
+    roles: owners_roles
+    tags: tags
+    sub_folders: sub_folders
+    department: department
+
+documentation:
+  markdown:
+    bold: '**'
+    italic: '*'
+    strikethrough: '~~'
+    hr: '----------'
+    title: '## '
+    quote: '>'
+    code: '`'
+    bullet: '-'
+    numbered: '$.'
+    checklist: '- [ ]'
+    image:
+      legend: '![$]'
+      link: '($)'
+    url:
+      text: '[$]'
+      link: '($)'
